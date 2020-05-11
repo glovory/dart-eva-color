@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:mime/mime.dart';
 
-
 const tpl =
     "import 'dart:ui';\nimport 'package:eva_color/evacolor.dart';\n\n\n//@auto generate do not edit\nclass EvaColors {";
 
@@ -51,30 +50,34 @@ void main(List<String> args) {
   } else {
     outputPath = dist;
   }
-//validate input file exist
-  if (inputFile.existsSync()) {
-    // validate output path is valid.
-    if (isOutputPathValid(outputPath)) {
-      // validate file input is json
-      if (isFileJson(inputPath)) {
-        // validate output file is dart
-        if (isFileDart(outputPath)) {
-          //generate file
-          if (isGenerateFile(inputFile, outputPath)) {
-            print('successfully generate file');
-          } else {
-            print('generate file failed');
-          }
-        } else {
-          print('output file type must be dart!');
-        }
-      } else {
-        print('input file type must be json!');
-      }
-    }
-  } else {
+  // validate input file exist
+  if (!inputFile.existsSync()) {
     print('File is not exist!');
+    exit(1);
   }
+  // validate output path valid
+  if (!isOutputPathValid(outputPath)) {
+    print('Invalid output path');
+    exit(1);
+  }
+  // validate file input is JSON
+  if (!isFileJson(inputPath)) {
+    print('Input file type must be json!');
+    exit(1);
+  }
+  // validate file output is Dart
+  if (!isFileDart(outputPath)) {
+    print('Output file type must be dart!');
+    exit(1);
+  }
+  // do generate file and validate success or not
+  if (!isGenerateFile(inputFile, outputPath)) {
+    print('Generate file failed');
+    exit(1);
+  }
+
+  print('Successfully generate file');
+
 }
 
 ///validate input is json file
@@ -171,13 +174,11 @@ bool isFileDart(String path) {
 }
 
 bool isGenerateFile(File file, String outputPath) {
-  File files = file;
-  String output = outputPath;
   Map<String, dynamic> map;
   try {
-    map = json.decode(files.readAsStringSync());
+    map = json.decode(file.readAsStringSync());
   } catch (error) {
-    print('invalid format json!');
+    print('Invalid json format!');
     return false;
   }
 
@@ -309,7 +310,7 @@ bool isGenerateFile(File file, String outputPath) {
       colorDangerTransparent);
 
   ///generate file
-  new File(output)
+  new File(outputPath)
     ..createSync(recursive: true)
     ..writeAsStringSync(dist);
   return true;
