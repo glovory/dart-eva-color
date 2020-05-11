@@ -1,8 +1,9 @@
-#EVA COLOR
+# EVA COLOR
+
 Eva Design Color Converter.
 Generate dart file automatically from JSON file containing the eva theme color.
 
-##INSTALLATION
+## INSTALLATION
 1. Import it into your pubspec dependencies:
 
 ```yaml
