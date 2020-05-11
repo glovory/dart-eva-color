@@ -4,7 +4,7 @@ import 'package:args/args.dart';
 import 'package:eva_color/utils.dart';
 
 const tpl =
-    "import 'dart:ui';\nimport 'package:eva_color/evacolor.dart';\n\n\n//@auto generate do not edit\nclass EvaColors {";
+    "import 'dart:ui';\nimport 'package:eva_color/eva_color.dart';\n\n\n//@auto generate do not edit\nclass EvaColors {";
 String src;
 String dest;
 
@@ -15,7 +15,7 @@ void generateFileFromArguments(List<String> arguments) {
       callback: (value) {
     return src = value;
   }, help: "Specify the json directory.");
-  parser.addOption('output', abbr: 'o', defaultsTo: 'lib/eva_color.dart',
+  parser.addOption('output', abbr: 'o', defaultsTo: 'lib/eva_colors.dart',
       callback: (value) {
     return dest = value;
   }, help: "Specify the output directory.");
