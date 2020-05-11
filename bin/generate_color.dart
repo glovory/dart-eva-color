@@ -15,7 +15,7 @@ void main(List<String> args) {
       callback: (value) {
     return src = value;
   }, help: "Specify the json directory.");
-  parser.addOption('output', abbr: 'o', defaultsTo: 'lib/tux_color.dart',
+  parser.addOption('output', abbr: 'o', defaultsTo: 'lib/eva_color.dart',
       callback: (value) {
     return dist = value;
   }, help: "Specify the output directory.");
