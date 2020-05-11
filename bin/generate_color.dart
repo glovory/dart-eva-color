@@ -4,7 +4,7 @@ import 'package:args/args.dart';
 import 'package:mime/mime.dart';
 
 const tpl =
-    "import 'dart:ui';\nimport 'package:evacolor/evacolor.dart';\n\n\n//@auto generate do not edit\nclass EvaColors {";
+    "import 'dart:ui';\nimport 'package:eva_color/evacolor.dart';\n\n\n//@auto generate do not edit\nclass EvaColors {";
 
 void main(List<String> args) {
   String src;
