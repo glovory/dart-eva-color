@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:mime/mime.dart';
 
+
 const tpl =
     "import 'dart:ui';\nimport 'package:eva_color/evacolor.dart';\n\n\n//@auto generate do not edit\nclass EvaColors {";
 
@@ -243,7 +244,7 @@ bool isGenerateFile(File file, String outputPath) {
       }
     } else {
       //generate for transparent color
-      String rgba = val.substring(6, val.length - 1);
+      String rgba = val.substring(5, val.length - 1);
       List<String> rgbaVal = rgba.split(",");
 
       switch (indexColor[1]) {
