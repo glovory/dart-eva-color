@@ -1,8 +1,8 @@
-name: evacolor
-description: A new Flutter package.
+name: eva_color
+description: Eva Design Color Converter. Generate dart file automatically from JSON file containing the eva theme color.
 version: 0.0.1
-author:
-homepage:
+author: enggar saka <enggar@glovory.com>
+homepage: http://glovory.com
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
