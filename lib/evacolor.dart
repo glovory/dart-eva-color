@@ -1,1 +1,0 @@
-export 'package:eva_color/model/eva_color.dart';
