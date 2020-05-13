@@ -18,6 +18,7 @@ class GeneratorOption {
         assert(output != null),
         assert(className != null);
 
+  /// Parse the generator from list of args
   factory GeneratorOption.parseArgs(List<String> args) {
     ArgParser parser = ArgParser();
 

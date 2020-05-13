@@ -23,5 +23,12 @@ void main() {
     expect(result.input, GeneratorOption.defaultInput);
     expect(result.output, GeneratorOption.defaultOutput);
     expect(result.className, classNameArgs[1]);
+
+    result = GeneratorOption.parseArgs(
+      List()..addAll(inputArgs)..addAll(outputArgs)..addAll(classNameArgs),
+    );
+    expect(result.input, inputArgs[1]);
+    expect(result.output, outputArgs[1]);
+    expect(result.className, classNameArgs[1]);
   });
 }
