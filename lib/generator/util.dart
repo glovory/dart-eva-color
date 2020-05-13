@@ -1,5 +1,5 @@
 ///convert RGBA color to hex with opacity
-String rgbaToHex(int r, int g, int b, double opacity) {
+String rgbaToIntHex(int r, int g, int b, double opacity) {
   // validate zero
   r = (r < 0) ? -r : r;
   g = (g < 0) ? -g : g;
@@ -14,5 +14,13 @@ String rgbaToHex(int r, int g, int b, double opacity) {
   // change opacity to integer
   int a = opacity.toInt();
   // return string representation
-  return '0x${a.toRadixString(16)}${r.toRadixString(16)}${g.toRadixString(16)}${b.toRadixString(16)}';
+  return '0x' +
+      '${a.toRadixString(16)}'.toUpperCase() +
+      '${r.toRadixString(16)}'.toUpperCase() +
+      '${g.toRadixString(16)}'.toUpperCase() +
+      '${b.toRadixString(16)}'.toUpperCase();
+}
+
+String hexToIntHex(String color) {
+  return color.replaceFirst('#', '0xFF');
 }
