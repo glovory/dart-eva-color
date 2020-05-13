@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 
 import 'util.dart';
@@ -6,6 +5,16 @@ import 'util.dart';
 enum ColorType {
   STANDARD,
   TRANSPARENT,
+}
+
+class ColorSwatchProperty {
+  ColorProperty primary;
+  List<ColorProperty> swatches;
+
+  ColorSwatchProperty({
+    this.primary,
+    this.swatches,
+  });
 }
 
 class ColorProperty {
@@ -21,7 +30,7 @@ class ColorProperty {
     @required this.hex,
   });
 
-  factory ColorProperty.fromKey(String key, String value) {
+  factory ColorProperty.fromLine(String key, String value) {
     List<String> keys = key.split('-');
 
     // remove first
