@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  mime: ^0.9.6+3
   args: ^1.6.0
 
 dev_dependencies:
