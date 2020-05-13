@@ -65,10 +65,10 @@ class ColorProperty {
           value.replaceFirst('rgba(', '').replaceFirst(')', '').split(',');
 
       hex = rgbaToIntHex(
-        int.tryParse(rgba[0]),
-        int.tryParse(rgba[1]),
-        int.tryParse(rgba[2]),
-        double.tryParse(rgba[3]),
+        int.tryParse(rgba[0].trim()),
+        int.tryParse(rgba[1].trim()),
+        int.tryParse(rgba[2].trim()),
+        double.tryParse(rgba[3].trim()),
       );
     }
 
