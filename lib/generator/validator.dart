@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:meta/meta.dart';
@@ -7,12 +8,15 @@ import 'option.dart';
 
 class GeneratorValidator {
   static const String inputNotExists = 'Input file is not exists';
-  static const String inputNotJson = 'Input file is not valid json file';
+  static const String inputNotJson = 'Input file is not a json file';
+  static const String inputNotValidJson = 'Input file is not valid json file';
   static const String outputNotDart = 'Output file must be dart file';
   static const String outputNoPermission =
       'Please check if you have write permission to this directory';
 
   final GeneratorOption option;
+
+  Map<String, dynamic> result;
 
   GeneratorValidator({
     @required this.option,
@@ -29,6 +33,13 @@ class GeneratorValidator {
     // check extension
     if (basename(file.path).split(".").last != 'json') {
       return inputNotJson;
+    }
+
+    // try parse to json
+    try {
+      result = json.decode(file.readAsStringSync());
+    } catch (e) {
+      return inputNotValidJson;
     }
 
     return null;

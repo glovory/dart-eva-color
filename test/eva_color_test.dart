@@ -36,7 +36,7 @@ void main() {
   test('Validator input not exists', () {
     GeneratorOption generatorOption = GeneratorOption.parseArgs([
       '-i',
-      'example/custom-theme-not-exists.json',
+      'test/custom-theme-not-exists.json',
     ]);
     GeneratorValidator validator = GeneratorValidator(
       option: generatorOption,
@@ -47,7 +47,7 @@ void main() {
   test('Validator input not json', () {
     GeneratorOption generatorOption = GeneratorOption.parseArgs([
       '-i',
-      'example/custom-theme.js',
+      'test/custom-theme.js',
     ]);
     GeneratorValidator validator = GeneratorValidator(
       option: generatorOption,
@@ -55,7 +55,18 @@ void main() {
     expect(validator.validateInputFile(), GeneratorValidator.inputNotJson);
   });
 
-  test('Validator input exists', () {
+  test('Validator input not valid json', () {
+    GeneratorOption generatorOption = GeneratorOption.parseArgs([
+      '-i',
+      'test/custom-theme-not-valid.json',
+    ]);
+    GeneratorValidator validator = GeneratorValidator(
+      option: generatorOption,
+    );
+    expect(validator.validateInputFile(), GeneratorValidator.inputNotValidJson);
+  });
+
+  test('Validator input valid', () {
     GeneratorOption generatorOption = GeneratorOption.parseArgs([
       '-i',
       'example/custom-theme.json',
