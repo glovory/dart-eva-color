@@ -36,7 +36,7 @@ from eva theme json file.
 
 1. Prepare the file `custom-theme.json` exported from the site. The
    default location is in your root Flutter project.
-2. Run `flutter pub run eva_color:generate_color` in command line.
+2. Run `flutter pub run eva_color:generate` in command line.
 3. Default output file will be in placed in `lib/eva_color.dart`. See
    options below for customization.
 
