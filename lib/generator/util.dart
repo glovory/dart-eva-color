@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'color.dart';
 
 ///convert RGBA color to hex with opacity
@@ -50,4 +52,15 @@ List<ColorSwatchProperty> parseJsonTheme(Map<String, dynamic> jsonMap) {
   });
 
   return results.values.toList();
+}
+
+void writeReplaceFile(File file, String content) {
+  // check if exists, delete it first
+  if (file.existsSync()) {
+    // assume replace
+    file.deleteSync();
+  }
+
+  file.createSync();
+  file.writeAsStringSync(content);
 }
