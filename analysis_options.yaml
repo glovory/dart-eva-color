@@ -1,0 +1,7 @@
+linter:
+  rules:
+    - prefer_relative_imports
+    - unnecessary_new
+    - unnecessary_this
+    - always_declare_return_types
+    - annotate_overrides
