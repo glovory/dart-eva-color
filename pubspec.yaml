@@ -13,4 +13,8 @@ dependencies:
   mime: ^0.9.6+3
   args: ^1.6.0
 
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
 flutter:
