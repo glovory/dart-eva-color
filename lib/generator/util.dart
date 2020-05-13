@@ -1,3 +1,5 @@
+import 'color.dart';
+
 ///convert RGBA color to hex with opacity
 String rgbaToIntHex(int r, int g, int b, double opacity) {
   // validate zero
@@ -23,4 +25,29 @@ String rgbaToIntHex(int r, int g, int b, double opacity) {
 
 String hexToIntHex(String color) {
   return color.replaceFirst('#', '0xFF');
+}
+
+List<ColorSwatchProperty> parseJsonTheme(Map<String, dynamic> jsonMap) {
+  // store results by categorize it using map to easily find it
+  Map<String, ColorSwatchProperty> results = Map<String, ColorSwatchProperty>();
+
+  // loop each line of json
+  jsonMap.forEach((key, value) {
+    ColorProperty parsed = ColorProperty.fromLine(key, value);
+
+    if (!results.containsKey(parsed.name)) {
+      results[parsed.name] = ColorSwatchProperty(
+        swatches: List<ColorProperty>(),
+      );
+    }
+
+    // add the parsed to swatches
+    results[parsed.name].swatches.add(parsed);
+    // if index is 500, add it as primary
+    if (parsed.index == '500') {
+      results[parsed.name].primary = parsed;
+    }
+  });
+
+  return results.values.toList();
 }
