@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 
-class Option {
+class GeneratorOption {
   static const String defaultInput = 'custom-theme.json';
   static const String defaultOutput = 'lib/eva_colors.dart';
   static const String defaultClassName = 'EvaColors';
@@ -9,7 +9,7 @@ class Option {
   final String output;
   final String className;
 
-  Option({
+  GeneratorOption({
     @required this.input,
     @required this.output,
     @required this.className,
