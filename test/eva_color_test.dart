@@ -1,3 +1,4 @@
+import 'package:eva_color/generator/color.dart';
 import 'package:eva_color/generator/option.dart';
 import 'package:eva_color/generator/validator.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -86,5 +87,25 @@ void main() {
       option: generatorOption,
     );
     expect(validator.validateOutputFile(), GeneratorValidator.outputNotDart);
+  });
+
+  test('Color property standard', () {
+    ColorProperty primary100 =
+        ColorProperty.fromKey('color-primary-100', '#D6E4FF');
+
+    expect(primary100.type, ColorType.STANDARD);
+    expect(primary100.name, 'primary');
+    expect(primary100.index, '100');
+    expect(primary100.hex, '0xFFD6E4FF');
+  });
+
+  test('Color property transparent', () {
+    ColorProperty transparent200 = ColorProperty.fromKey(
+        'color-success-transparent-200', 'rgba(62, 196, 62, 0.08)');
+
+    expect(transparent200.type, ColorType.TRANSPARENT);
+    expect(transparent200.name, 'successTransparent');
+    expect(transparent200.index, '200');
+    expect(transparent200.hex, '0x143EC43E');
   });
 }
