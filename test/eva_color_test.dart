@@ -72,7 +72,7 @@ void main() {
   test('Validator input valid', () {
     GeneratorOption generatorOption = GeneratorOption.parseArgs([
       '-i',
-      'example/custom-theme.json',
+      'sample/custom-theme.json',
     ]);
     GeneratorValidator validator = GeneratorValidator(
       option: generatorOption,
@@ -83,7 +83,7 @@ void main() {
   test('Validator output not dart', () {
     GeneratorOption generatorOption = GeneratorOption.parseArgs([
       '-o',
-      'example/eva_color.bin',
+      'sample/eva_color.bin',
     ]);
     GeneratorValidator validator = GeneratorValidator(
       option: generatorOption,
@@ -114,9 +114,9 @@ void main() {
   test('Full generate', () {
     GeneratorOption generatorOption = GeneratorOption.parseArgs([
       '-i',
-      'example/custom-theme.json',
+      'sample/custom-theme.json',
       '-o',
-      'example/eva_colors.dart',
+      'sample/eva_colors.dart',
       '-c',
       'MyColors',
     ]);
