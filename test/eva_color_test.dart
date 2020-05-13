@@ -1,4 +1,5 @@
 import 'package:eva_color/generator/option.dart';
+import 'package:eva_color/generator/validator.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -30,5 +31,49 @@ void main() {
     expect(result.input, inputArgs[1]);
     expect(result.output, outputArgs[1]);
     expect(result.className, classNameArgs[1]);
+  });
+
+  test('Validator input not exists', () {
+    GeneratorOption generatorOption = GeneratorOption.parseArgs([
+      '-i',
+      'example/custom-theme-not-exists.json',
+    ]);
+    GeneratorValidator validator = GeneratorValidator(
+      option: generatorOption,
+    );
+    expect(validator.validateInputFile(), GeneratorValidator.inputNotExists);
+  });
+
+  test('Validator input not json', () {
+    GeneratorOption generatorOption = GeneratorOption.parseArgs([
+      '-i',
+      'example/custom-theme.js',
+    ]);
+    GeneratorValidator validator = GeneratorValidator(
+      option: generatorOption,
+    );
+    expect(validator.validateInputFile(), GeneratorValidator.inputNotJson);
+  });
+
+  test('Validator input exists', () {
+    GeneratorOption generatorOption = GeneratorOption.parseArgs([
+      '-i',
+      'example/custom-theme.json',
+    ]);
+    GeneratorValidator validator = GeneratorValidator(
+      option: generatorOption,
+    );
+    expect(validator.validateInputFile(), null);
+  });
+
+  test('Validator output not dart', () {
+    GeneratorOption generatorOption = GeneratorOption.parseArgs([
+      '-o',
+      'example/eva_color.bin',
+    ]);
+    GeneratorValidator validator = GeneratorValidator(
+      option: generatorOption,
+    );
+    expect(validator.validateOutputFile(), GeneratorValidator.outputNotDart);
   });
 }
