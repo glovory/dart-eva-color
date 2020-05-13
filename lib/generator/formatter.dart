@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'color.dart';
 
 class GeneratorFormatter {
@@ -10,8 +8,12 @@ class GeneratorFormatter {
     String colorName = color.primary.name;
 
     // top of color
-    final String top =
-        '  static const ${colorClass} ${colorName} = ${colorClass}(${color.primary.hex}, {\n';
+    String top = '  static const ${colorClass} ${colorName} = ';
+    if (color.primary.type != ColorType.STANDARD) {
+      top += '\n      ';
+    }
+    top += '${colorClass}(${color.primary.hex}, {\n';
+
     // bottom of color
     final String bottom = '  });\n';
 
