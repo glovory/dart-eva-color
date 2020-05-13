@@ -1,76 +1,66 @@
 # EVA COLOR
 
-Eva Design Color Converter.
-Generate dart file automatically from JSON file containing the eva theme color.
+Simple Eva Design System color class for Flutter, with dart generator
+from eva theme json file.
+
+> Eva Design is a trademark of Akveo LLC
 
 ## INSTALLATION
-1. Import it into your pubspec dependencies:
 
-```yaml
-dependencies:
-  eva_color:
-      git:
-        url: https://github.com/glovory/dart-eva-color.git
-```
-2. You can install packages from the command line:
+1. Just include it into your `pubspec.yaml` dependencies:
+
+`//TODO Publish in pub.dev and add the package name here`
+
+2. Run command to update the dependencies:
 
 ```bash
    $ flutter pub get
 ```
+
+## FEATURES
+
+1. This package provide 2 color class for Eva Design standard output:
+   ```
+   EvaColor -> used for the basic color with 9 shades
+   EvaTransparentColor -> used for transparent color with 6 shades
+   ```
+   These classes are compatible with `dart:ui` and can be used in any
+   color definition in the Flutter style / UI.
+2. To easily generate color, there is a command to generate dart file
+   for your project, using the json file exported from the [Eva Color
+   Site](https://colors.eva.design/). The generated dart file will
+   import and use `EvaColor` class and `EvaTransparentColor` class from
+   this package.
+
 ## USAGE
-1. Put file "eva_theme.json" that contains eva design color themes in the root of your project.
-2. Run `flutter pub run eva_color:generate_color`.
-3. By default file that have been successfully created will be placed in `lib/eva_color.dart`.
 
-### EXAMPLE
-1. Import your generate file to your page.
-```dart
-import './eva_color.dart';
-```
-2. Use Eva Color Scheme with `EvaColors.primary` or with number shade like `EvaColors.primary.shade100`
-```dart
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('New APPS',style: TextStyle(color: EvaColors.primary)),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Hello World',style: TextStyle(color: EvaColors.primary.shade100),
-            ),
-          ],
-        ),
-      ),// This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
+1. Prepare the file `custom-theme.json` exported from the site. The
+   default location is in your root Flutter project.
+2. Run `flutter pub run eva_color:generate_color` in command line.
+3. Default output file will be in placed in `lib/eva_color.dart`. See
+   options below for customization.
+
+## OPTIONS
 
 ```
-###  Command arguments Color Converter
-
-The default JSON input file directory is ` ./eva_theme.json`,
-you can custom input file directory by `-i` argument, for example:
-
-```shell
-flutter pub run eva_color:generate_color -i json_files
-or
-flutter pub run eva_color:generate_color --input json_files
+-i or --input : Define input file, anywhere using relative or absolute path. Default to ${PROJECT_DIR}/custom-theme.json
+-o or --output : Define output file, anywhere using relative or absolute path. Default to ${PROJECT_DIR}/lib/eva_colors.dart
+-c or --class : Define class name for the generated color scheme. Default to EvaColors
 ```
 
-You can also custom the output directory by `-o` argument:
+## EXAMPLE
 
-```shell
-flutter pub run eva_color:generate_color -o dart_file
-or
-flutter pub run eva_color:generate_color --output dart_file
-```
-or custom both of them
+Below is how you use the color in your project.
 
-```shell
-flutter pub run eva_color:generate_color -i json_files -o dart_file
-or
-flutter pub run eva_color:generate_color --input json_files --output dart_file
-```
+1. Suppose the output file is in your `/lib/eva_colors.dart`.
+2. Import your generated file to your page.
+   ```dart
+   import 'eva_colors.dart'; // or use absolute import
+   ```
+3. Use Eva Color Scheme with `EvaColors.primary` or with specific shade
+   such as `EvaColors.primary.shade100`
+   ```dart
+   Widget container = Container(
+     color: EvaColors.primary,
+   );
+   ```
