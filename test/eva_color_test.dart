@@ -1,5 +1,7 @@
 import 'package:eva_color/generator/color.dart';
+import 'package:eva_color/generator/formatter.dart';
 import 'package:eva_color/generator/option.dart';
+import 'package:eva_color/generator/util.dart';
 import 'package:eva_color/generator/validator.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -91,7 +93,7 @@ void main() {
 
   test('Color property standard', () {
     ColorProperty primary100 =
-        ColorProperty.fromKey('color-primary-100', '#D6E4FF');
+        ColorProperty.fromLine('color-primary-100', '#D6E4FF');
 
     expect(primary100.type, ColorType.STANDARD);
     expect(primary100.name, 'primary');
@@ -100,12 +102,40 @@ void main() {
   });
 
   test('Color property transparent', () {
-    ColorProperty transparent200 = ColorProperty.fromKey(
+    ColorProperty transparent200 = ColorProperty.fromLine(
         'color-success-transparent-200', 'rgba(62, 196, 62, 0.08)');
 
     expect(transparent200.type, ColorType.TRANSPARENT);
     expect(transparent200.name, 'successTransparent');
     expect(transparent200.index, '200');
     expect(transparent200.hex, '0x143EC43E');
+  });
+
+  test('Full generate', () {
+    GeneratorOption generatorOption = GeneratorOption.parseArgs([
+      '-i',
+      'example/custom-theme.json',
+      '-o',
+      'example/eva_colors.dart',
+      '-c',
+      'MyColors',
+    ]);
+    GeneratorValidator validator = GeneratorValidator(
+      option: generatorOption,
+    );
+    expect(validator.validateInputFile(), null);
+    expect(validator.validateOutputFile(), null);
+
+    List<ColorSwatchProperty> swatches = parseJsonTheme(validator.result);
+    expect(swatches.length, 10);
+
+    // format now
+    GeneratorFormatter formatter = GeneratorFormatter();
+    final String output = formatter.formatClass(
+      generatorOption.className,
+      formatter.formatBody(swatches),
+    );
+
+    writeReplaceFile(validator.output, output);
   });
 }
