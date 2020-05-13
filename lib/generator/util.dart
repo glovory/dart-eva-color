@@ -19,10 +19,10 @@ String rgbaToIntHex(int r, int g, int b, double opacity) {
   int a = opacity.toInt();
   // return string representation
   return '0x' +
-      '${a.toRadixString(16)}'.toUpperCase() +
-      '${r.toRadixString(16)}'.toUpperCase() +
-      '${g.toRadixString(16)}'.toUpperCase() +
-      '${b.toRadixString(16)}'.toUpperCase();
+      '${a.toRadixString(16)}'.toUpperCase().padLeft(2, '0') +
+      '${r.toRadixString(16)}'.toUpperCase().padLeft(2, '0') +
+      '${g.toRadixString(16)}'.toUpperCase().padLeft(2, '0') +
+      '${b.toRadixString(16)}'.toUpperCase().padLeft(2, '0');
 }
 
 String hexToIntHex(String color) {
