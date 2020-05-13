@@ -16,7 +16,10 @@ class GeneratorValidator {
 
   final GeneratorOption option;
 
+  // parsed json
   Map<String, dynamic> result;
+  // prepare output
+  File output;
 
   GeneratorValidator({
     @required this.option,
@@ -63,6 +66,9 @@ class GeneratorValidator {
         return outputNoPermission;
       }
     }
+
+    // assign output
+    output = file;
 
     return null;
   }
