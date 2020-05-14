@@ -35,15 +35,19 @@ with dart generator from eva theme json file.
    dart file will import and use `EvaColor` class and
    `EvaTransparentColor` class from this package.
 
-## USAGE
+## DART COLOR SCHEME GENERATOR
 
 1. Prepare the file `custom-theme.json` exported from the site. The
    default location is in your root Flutter project.
 2. Run `flutter pub run eva_color:generate` in command line.
 3. Default output file will be in placed in `lib/eva_color.dart`. See
    options below for customization.
+4. Example command
+   ```
+   flutter pub run eva_color:generate -i assets/my-app-color.json -o lib/config/color.dart -c AppColor`.
+   ```
 
-## OPTIONS
+### GENERATOR OPTIONS (CLI ARGUMENTS)
 
 ```
 -i or --input : Define input file, anywhere using relative or absolute path. Default to ${PROJECT_DIR}/custom-theme.json
@@ -51,7 +55,7 @@ with dart generator from eva theme json file.
 -c or --class : Define class name for the generated color scheme. Default to EvaColors
 ```
 
-## EXAMPLE
+## USAGE
 
 Below is how you use the color in your project.
 
@@ -106,7 +110,7 @@ Below is how you use the color in your project.
 
 If you want to add more Eva Color shades, just add it in the
 `custom-theme.json` provided by the exported file. For example, adding
-accent colors:
+accent colors with shades:
 
 ```
 "color-accent-100": "#D6E4FF",
