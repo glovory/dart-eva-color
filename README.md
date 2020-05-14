@@ -64,3 +64,21 @@ Below is how you use the color in your project.
      color: EvaColors.primary,
    );
    ```
+
+## TIPS
+
+If you want to add more Eva Color shades, just add it in the
+`custom-theme.json` provided by the exported file. For example, adding
+accent colors:
+
+```
+"color-accent-100": "#D6E4FF",
+"color-accent-200": "#ADC8FF",
+"color-accent-300": "#84A9FF",
+"color-accent-400": "#6690FF",
+"color-accent-500": "#3366FF",
+"color-accent-600": "#254EDB",
+"color-accent-700": "#1939B7",
+"color-accent-800": "#102693",
+"color-accent-900": "#091A7A",
+```
