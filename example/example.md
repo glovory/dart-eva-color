@@ -1,3 +1,7 @@
+Example
+-------
+
+```dart
 import 'package:eva_color/eva_color.dart';
 import 'package:flutter/material.dart';
 
@@ -20,3 +24,4 @@ class EvaColors {
 Widget container = Container(
   color: EvaColors.primary.shade200,
 );
+```
