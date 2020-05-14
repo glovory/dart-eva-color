@@ -1,7 +1,7 @@
 # EVA COLOR
 
-Simple Eva Design System color class for Flutter, with dart generator
-from eva theme json file.
+Simple [Eva Design System](https://eva.design) color class for Flutter,
+with dart generator from eva theme json file.
 
 > Eva Design is a trademark of Akveo LLC
 
