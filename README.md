@@ -9,7 +9,7 @@ from eva theme json file.
 
 1. Just include it into your `pubspec.yaml` dependencies:
 
-`//TODO Publish in pub.dev and add the package name here`
+`eva_color: ^1.0.0`
 
 2. Run command to update the dependencies:
 
@@ -52,7 +52,8 @@ from eva theme json file.
 
 Below is how you use the color in your project.
 
-1. Suppose the output file is in your `/lib/eva_colors.dart`.
+1. Suppose the output file is in your `/lib/eva_colors.dart` and the
+   class is default to `EvaColors`.
 2. Import your generated file to your page.
    ```dart
    import 'eva_colors.dart'; // or use absolute import
