@@ -16,7 +16,7 @@ class MyColors {
     900: Color(0xFF091A7A),
   });
 
-  static const EvaTransparentColor primaryTransparent = 
+  static const EvaTransparentColor primaryTransparent =
       EvaTransparentColor(0x663366FF, {
     100: Color(0x143366FF),
     200: Color(0x283366FF),
@@ -38,7 +38,7 @@ class MyColors {
     900: Color(0xFF0B5E28),
   });
 
-  static const EvaTransparentColor successTransparent = 
+  static const EvaTransparentColor successTransparent =
       EvaTransparentColor(0x663EC43E, {
     100: Color(0x143EC43E),
     200: Color(0x283EC43E),
@@ -60,7 +60,7 @@ class MyColors {
     900: Color(0xFF01347A),
   });
 
-  static const EvaTransparentColor infoTransparent = 
+  static const EvaTransparentColor infoTransparent =
       EvaTransparentColor(0x660AB1FF, {
     100: Color(0x140AB1FF),
     200: Color(0x280AB1FF),
@@ -82,7 +82,7 @@ class MyColors {
     900: Color(0xFF7A6801),
   });
 
-  static const EvaTransparentColor warningTransparent = 
+  static const EvaTransparentColor warningTransparent =
       EvaTransparentColor(0x66FFE60A, {
     100: Color(0x14FFE60A),
     200: Color(0x28FFE60A),
@@ -104,7 +104,7 @@ class MyColors {
     900: Color(0xFF7A0B2F),
   });
 
-  static const EvaTransparentColor dangerTransparent = 
+  static const EvaTransparentColor dangerTransparent =
       EvaTransparentColor(0x66FF3D3A, {
     100: Color(0x14FF3D3A),
     200: Color(0x28FF3D3A),

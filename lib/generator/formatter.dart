@@ -2,17 +2,22 @@ import 'color.dart';
 
 class GeneratorFormatter {
   String _formatColor(ColorSwatchProperty color) {
+    final int pageLength = 80;
+
     String colorClass = color.primary.type == ColorType.STANDARD
         ? 'EvaColor'
         : 'EvaTransparentColor';
     String colorName = color.primary.name;
 
     // top of color
-    String top = '  static const ${colorClass} ${colorName} = ';
-    if (color.primary.type != ColorType.STANDARD) {
-      top += '\n      ';
+    String top = '  static const ${colorClass} ${colorName} =';
+    String _topLong = '${colorClass}(${color.primary.hex}, {';
+    // if the long class name plus space is long
+    if (top.length + 1 + _topLong.length >= pageLength) {
+      top += '\n      ' + _topLong + '\n';
+    } else {
+      top += ' ' + _topLong + '\n';
     }
-    top += '${colorClass}(${color.primary.hex}, {\n';
 
     // bottom of color
     final String bottom = '  });\n';
