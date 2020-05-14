@@ -1,9 +1,10 @@
-import 'package:eva_color/generator/color.dart';
-import 'package:eva_color/generator/formatter.dart';
-import 'package:eva_color/generator/option.dart';
-import 'package:eva_color/generator/util.dart';
-import 'package:eva_color/generator/validator.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import '../bin/src/color.dart';
+import '../bin/src/formatter.dart';
+import '../bin/src/option.dart';
+import '../bin/src/util.dart';
+import '../bin/src/validator.dart';
 
 void main() {
   test('Argument parser', () {

@@ -18,6 +18,7 @@ class GeneratorValidator {
 
   // parsed json
   Map<String, dynamic> result;
+
   // prepare output
   File output;
 

@@ -11,7 +11,7 @@ class GeneratorFormatter {
 
     // top of color
     String top = '  static const $colorClass $colorName =';
-    String _topLong = '$colorClass($color.primary.hex, {';
+    String _topLong = '$colorClass(${color.primary.hex}, {';
     // if the long class name plus space is long
     if (top.length + 1 + _topLong.length >= pageLength) {
       top += '\n      ' + _topLong + '\n';

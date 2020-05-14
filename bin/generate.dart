@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import '../lib/generator/color.dart';
-import '../lib/generator/formatter.dart';
-import '../lib/generator/option.dart';
-import '../lib/generator/util.dart';
-import '../lib/generator/validator.dart';
+import 'src/color.dart';
+import 'src/formatter.dart';
+import 'src/option.dart';
+import 'src/util.dart';
+import 'src/validator.dart';
 
 void main(List<String> args) {
   // options
