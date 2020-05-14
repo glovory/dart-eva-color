@@ -8,29 +8,29 @@ from eva theme json file.
 ## INSTALLATION
 
 1. Just include it into your `pubspec.yaml` dependencies:
-
-`eva_color: ^1.0.0`
-
+   ```
+   eva_color:^1.0.0
+   ```
 2. Run command to update the dependencies:
-
-```bash
+   ```bash
    $ flutter pub get
-```
+   ```
 
 ## FEATURES
 
-1. This package provide 2 color class for Eva Design standard output:
+1. __Color Swatches__. This package provide 2 color class for Eva Design
+   standard output:
    ```
    EvaColor -> used for the basic color with 9 shades
    EvaTransparentColor -> used for transparent color with 6 shades
    ```
    These classes are compatible with `dart:ui` and can be used in any
    color definition in the Flutter style / UI.
-2. To easily generate color, there is a command to generate dart file
-   for your project, using the json file exported from the [Eva Color
-   Site](https://colors.eva.design/). The generated dart file will
-   import and use `EvaColor` class and `EvaTransparentColor` class from
-   this package.
+2. __Generator__. To easily generate color, there is a command to
+   generate dart file for your project, using the json file exported
+   from the [Eva Color Site](https://colors.eva.design/). The generated
+   dart file will import and use `EvaColor` class and
+   `EvaTransparentColor` class from this package.
 
 ## USAGE
 
@@ -54,12 +54,45 @@ Below is how you use the color in your project.
 
 1. Suppose the output file is in your `/lib/eva_colors.dart` and the
    class is default to `EvaColors`.
-2. Import your generated file to your page.
+2. Sample output.
+   ```
+   import 'dart:ui';
+
+   import 'package:eva_color/eva_color.dart';
+    
+   // @autogenerate DO NOT EDIT!!!
+   class EvaColors {
+     static const EvaColor primary = EvaColor(0xFF3366FF, {
+       100: Color(0xFFD6E4FF),
+       200: Color(0xFFADC8FF),
+       300: Color(0xFF84A9FF),
+       400: Color(0xFF6690FF),
+       500: Color(0xFF3366FF),
+       600: Color(0xFF254EDB),
+       700: Color(0xFF1939B7),
+       800: Color(0xFF102693),
+       900: Color(0xFF091A7A),
+     });
+    
+     static const EvaTransparentColor primaryTransparent =
+         EvaTransparentColor(0x663366FF, {
+       100: Color(0x143366FF),
+       200: Color(0x283366FF),
+       300: Color(0x3D3366FF),
+       400: Color(0x513366FF),
+       500: Color(0x663366FF),
+       600: Color(0x7A3366FF),
+     });
+    
+     // other colors below
+   }
+   ```
+3. Import your generated file to your desired page.
    ```dart
    import 'eva_colors.dart'; // or use absolute import
    ```
-3. Use Eva Color Scheme with `EvaColors.primary` or with specific shade
-   such as `EvaColors.primary.shade100`
+4. Use Eva Color Scheme by its name `EvaColors.primary` for primary
+   shade, or lighter/darker shade such as `EvaColors.primary.shade100`.
    ```dart
    Widget container = Container(
      color: EvaColors.primary,
