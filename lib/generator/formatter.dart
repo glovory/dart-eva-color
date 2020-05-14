@@ -10,8 +10,8 @@ class GeneratorFormatter {
     String colorName = color.primary.name;
 
     // top of color
-    String top = '  static const ${colorClass} ${colorName} =';
-    String _topLong = '${colorClass}(${color.primary.hex}, {';
+    String top = '  static const $colorClass $colorName =';
+    String _topLong = '$colorClass($color.primary.hex, {';
     // if the long class name plus space is long
     if (top.length + 1 + _topLong.length >= pageLength) {
       top += '\n      ' + _topLong + '\n';
@@ -50,7 +50,7 @@ class GeneratorFormatter {
     importStatement += "import 'package:eva_color/eva_color.dart';\n\n";
     importStatement += "// @autogenerate DO NOT EDIT!!!\n";
 
-    String classTop = 'class ${className} {\n';
+    String classTop = 'class $className {\n';
     String classBottom = '}\n';
 
     return importStatement + classTop + body + classBottom;
