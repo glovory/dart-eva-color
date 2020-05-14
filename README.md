@@ -1,4 +1,4 @@
-[![version](https://img.shields.io/badge/version-1.0.0+1-blue)](https://pub.dev/packages/eva_color)
+[![version](https://img.shields.io/badge/version-1.0.1-blue)](https://pub.dev/packages/eva_color)
 [![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
 
 # EVA COLOR
@@ -12,7 +12,7 @@ with dart generator from eva theme json file.
 
 1. Just include it into your `pubspec.yaml` dependencies:
    ```
-   eva_color:^1.0.0
+   eva_color: ^1.0.1
    ```
 2. Run command to update the dependencies:
    ```bash
