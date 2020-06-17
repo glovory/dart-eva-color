@@ -114,7 +114,7 @@ class MyColors {
     600: Color(0x7AFF3D3A),
   });
 
-  static const EvaBasicColor basic = EvaBasicColor(0xFFC5CEE0, {
+  static const EvaBasicColor basic = EvaBasicColor(0xFF8F9BB3, {
     100: Color(0xFFFFFFFF),
     200: Color(0xFFF7F9FC),
     300: Color(0xFFEDF1F7),
