@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:meta/meta.dart';
 import 'package:path/path.dart';
 
@@ -80,7 +79,7 @@ class GeneratorValidator {
 
   /// Validate the existing basic color. If the basic color is not exists,
   /// use the predefined basic color from sketch file.
-  String validateBasicColor() {
+  String validateBasicColor(String path) {
     final int linesNeeded = 23;
 
     int basicCount = _countBasicColor(result);
@@ -93,7 +92,7 @@ class GeneratorValidator {
     // if it has no definition, load the default from sketch file specification
     if (basicCount == 0) {
       Map<String, dynamic> basicMap = json.decode(
-        File("bin/style/basic.json").readAsStringSync(),
+        File(path).readAsStringSync(),
       );
       // add the basic in the result
       result.addAll(basicMap);

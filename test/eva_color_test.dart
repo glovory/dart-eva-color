@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 
 import '../bin/src/color.dart';
@@ -123,10 +125,12 @@ void main() {
     GeneratorValidator validator = GeneratorValidator(
       option: generatorOption,
     );
+
     expect(validator.validateInputFile(), null);
     expect(validator.validateOutputFile(), null);
     expect(
-      validator.validateBasicColor(),
+      validator
+          .validateBasicColor(Directory.current.path + "/bin/style/basic.json"),
       GeneratorValidator.basicColorNotValid,
     );
   });
@@ -146,7 +150,10 @@ void main() {
 
     expect(validator.validateInputFile(), null);
     expect(validator.validateOutputFile(), null);
-    expect(validator.validateBasicColor(), null);
+    expect(
+        validator.validateBasicColor(
+            Directory.current.path + "/bin/style/basic.json"),
+        null);
   });
 
   test('Full generate with basic color defined', () {
@@ -163,7 +170,7 @@ void main() {
     );
     expect(validator.validateInputFile(), null);
     expect(validator.validateOutputFile(), null);
-    expect(validator.validateBasicColor(), null);
+    expect(validator.validateBasicColor(Directory.current.path), null);
 
     List<ColorSwatchProperty> swatches = parseJsonTheme(validator.result);
     expect(swatches.length, 13);
@@ -192,7 +199,10 @@ void main() {
     );
     expect(validator.validateInputFile(), null);
     expect(validator.validateOutputFile(), null);
-    expect(validator.validateBasicColor(), null);
+    expect(
+        validator.validateBasicColor(
+            Directory.current.path + "/bin/style/basic.json"),
+        null);
 
     List<ColorSwatchProperty> swatches = parseJsonTheme(validator.result);
     expect(swatches.length, 13);
