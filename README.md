@@ -107,7 +107,34 @@ Below is how you use the color in your project.
    ```
 
 ## TIPS
-
+### Basic Color
+By default, basic color is not provided by generated json from colors.eva.design. flutter_eva_color already generated the basic color using default value from eva design. if you want to custom the value just add below code with your desired value into generated json from colors.eva.design and you must provide every basic value on code below, or it will failed to generate the class 
+```
+  "color-basic-100": "#FFFFFF",
+  "color-basic-200": "#F7F9FC",
+  "color-basic-300": "#EDF1F7",
+  "color-basic-400": "#E4E9F2",
+  "color-basic-500": "#C5CEE0",
+  "color-basic-600": "#8F9BB3",
+  "color-basic-700": "#2E3A59",
+  "color-basic-800": "#222B45",
+  "color-basic-900": "#192038",
+  "color-basic-1000": "#151A30",
+  "color-basic-1100": "#101426",
+  "color-basic-light-transparent-100": "rgba(142, 155, 179, 0.08)",
+  "color-basic-light-transparent-200": "rgba(142, 155, 179, 0.16)",
+  "color-basic-light-transparent-300": "rgba(142, 155, 179, 0.24)",
+  "color-basic-light-transparent-400": "rgba(142, 155, 179, 0.32)",
+  "color-basic-light-transparent-500": "rgba(142, 155, 179, 0.4)",
+  "color-basic-light-transparent-600": "rgba(142, 155, 179, 0.48)",
+  "color-basic-dark-transparent-100": "rgba(255, 255, 225, 0.08)",
+  "color-basic-dark-transparent-200": "rgba(255, 255, 255, 0.16)",
+  "color-basic-dark-transparent-300": "rgba(255, 255, 255, 0.24)",
+  "color-basic-dark-transparent-400": "rgba(255, 255, 255, 0.32)",
+  "color-basic-dark-transparent-500": "rgba(255, 255, 255, 0.4)",
+  "color-basic-dark-transparent-600": "rgba(255, 255, 255, 0.48)",
+```
+### Color Shades
 If you want to add more Eva Color shades, just add it in the
 `custom-theme.json` provided by the exported file. For example, adding
 accent colors with shades:
