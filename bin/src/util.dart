@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'color.dart';
@@ -46,7 +47,9 @@ List<ColorSwatchProperty> parseJsonTheme(Map<String, dynamic> jsonMap) {
     // add the parsed to swatches
     results[parsed.name].swatches.add(parsed);
     // if index is 500, add it as primary
-    if (parsed.index == '500') {
+    if (parsed.type == ColorType.BASIC && parsed.index == '600') {
+      results[parsed.name].primary = parsed;
+    } else if (parsed.type != ColorType.BASIC && parsed.index == '500') {
       results[parsed.name].primary = parsed;
     }
   });
