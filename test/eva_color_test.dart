@@ -129,8 +129,7 @@ void main() {
     expect(validator.validateInputFile(), null);
     expect(validator.validateOutputFile(), null);
     expect(
-      validator
-          .validateBasicColor(Directory.current.path + "/bin/style/basic.json"),
+      validator.validateBasicColor(),
       GeneratorValidator.basicColorNotValid,
     );
   });
@@ -151,9 +150,11 @@ void main() {
     expect(validator.validateInputFile(), null);
     expect(validator.validateOutputFile(), null);
     expect(
-        validator.validateBasicColor(
-            Directory.current.path + "/bin/style/basic.json"),
-        null);
+      validator.validateBasicColor(
+        Directory.current.path + "/bin/style/basic.json",
+      ),
+      null,
+    );
   });
 
   test('Full generate with basic color defined', () {
@@ -170,7 +171,7 @@ void main() {
     );
     expect(validator.validateInputFile(), null);
     expect(validator.validateOutputFile(), null);
-    expect(validator.validateBasicColor(Directory.current.path), null);
+    expect(validator.validateBasicColor(), null);
 
     List<ColorSwatchProperty> swatches = parseJsonTheme(validator.result);
     expect(swatches.length, 13);
@@ -200,9 +201,11 @@ void main() {
     expect(validator.validateInputFile(), null);
     expect(validator.validateOutputFile(), null);
     expect(
-        validator.validateBasicColor(
-            Directory.current.path + "/bin/style/basic.json"),
-        null);
+      validator.validateBasicColor(
+        Directory.current.path + "/bin/style/basic.json",
+      ),
+      null,
+    );
 
     List<ColorSwatchProperty> swatches = parseJsonTheme(validator.result);
     expect(swatches.length, 13);

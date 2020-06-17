@@ -1,3 +1,8 @@
+## [1.1.1] - 17 June 2020.
+
+* Fix default basic color json file path when the library is used by other project.
+* Fix the test case for validating basic color
+
 ## [1.1.0] - 17 June 2020.
 
 * Add basic color for black and white. If not defined in the input file, it will be generated 
