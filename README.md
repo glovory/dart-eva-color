@@ -1,4 +1,4 @@
-[![version](https://img.shields.io/badge/version-1.0.1-blue)](https://pub.dev/packages/eva_color)
+[![version](https://img.shields.io/badge/version-1.1.0-blue)](https://pub.dev/packages/eva_color)
 [![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
 
 # EVA COLOR
