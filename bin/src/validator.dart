@@ -86,7 +86,7 @@ class GeneratorValidator {
     int basicCount = _countBasicColor(result);
 
     // validate the count
-    if (basicCount != 0 || basicCount != linesNeeded) {
+    if (basicCount != 0 && basicCount != linesNeeded) {
       return basicColorNotValid;
     }
 
