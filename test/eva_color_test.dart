@@ -9,7 +9,6 @@ import '../bin/src/validator.dart';
 void main() {
   test('Argument parser', () {
     List<String> inputArgs = ['-i', 'assets/custom-theme.json'];
-    List<String> inputNoBasicArgs = ['-i', 'assets/custom-theme-no-basic.json'];
     List<String> outputArgs = ['-o', 'lib/config/style.dart'];
     List<String> classNameArgs = ['-c', 'MyColors'];
 
@@ -144,7 +143,7 @@ void main() {
     );
     expect(validator.validateInputFile(), null);
     expect(validator.validateOutputFile(), null);
-    expect(validator.validateBasicColor(),null);
+    expect(validator.validateBasicColor(), null);
 
     List<ColorSwatchProperty> swatches = parseJsonTheme(validator.result);
     expect(swatches.length, 13);
