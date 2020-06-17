@@ -3,11 +3,9 @@ import 'package:meta/meta.dart';
 import 'util.dart';
 
 enum ColorType {
-  BASIC,
-  LIGHT,
-  DARK,
-  STANDARD,
-  TRANSPARENT,
+  basic,
+  standard,
+  transparent,
 }
 
 class ColorSwatchProperty {
@@ -43,23 +41,16 @@ class ColorProperty {
     String index = keys.removeLast();
 
     // get type
-    ColorType type = ColorType.STANDARD;
+    ColorType type = ColorType.standard;
 
     // if the keys contain basic keyword, use color type basic
     if (keys.contains('basic')) {
-      type = ColorType.BASIC;
-      // if it also has light, use color type basic light
-      if (keys.contains('light')) {
-        type = ColorType.LIGHT;
-      } else
-      // or if it also has dark, use color type basic light
-      if (keys.contains('dark')) {
-        type = ColorType.DARK;
-      }
-    } else
-    // if it has transparent, we will use only transparent
+      type = ColorType.basic;
+    }
+    // if it has transparent, we will use only transparent, either it has
+    // basic keyword or not
     if (keys.contains('transparent')) {
-      type = ColorType.TRANSPARENT;
+      type = ColorType.transparent;
     }
 
     // Camelize name
@@ -75,7 +66,7 @@ class ColorProperty {
 
     // get hex
     String hex;
-    if (type == ColorType.STANDARD || type == ColorType.BASIC) {
+    if (type == ColorType.standard || type == ColorType.basic) {
       hex = hexToIntHex(value);
     } else {
       final List<String> rgba =
