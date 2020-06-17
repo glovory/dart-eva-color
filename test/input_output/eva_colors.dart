@@ -4,40 +4,6 @@ import 'package:eva_color/eva_color.dart';
 
 // @autogenerate DO NOT EDIT!!!
 class MyColors {
-  static const EvaBasicColor basic = EvaBasicColor(0xFFC5CEE0, {
-    100: Color(0xFFFFFFFF),
-    200: Color(0xFFF7F9FC),
-    300: Color(0xFFEDF1F7),
-    400: Color(0xFFE4E9F2),
-    500: Color(0xFFC5CEE0),
-    600: Color(0xFF8F9BB3),
-    700: Color(0xFF2E3A59),
-    800: Color(0xFF222B45),
-    900: Color(0xFF192038),
-    1000: Color(0xFF151A30),
-    1100: Color(0xFF101426),
-  });
-
-  static const EvaTransparentColor basicLightTransparent =
-      EvaTransparentColor(0x668E9BB3, {
-    100: Color(0x148E9BB3),
-    200: Color(0x288E9BB3),
-    300: Color(0x3D8E9BB3),
-    400: Color(0x518E9BB3),
-    500: Color(0x668E9BB3),
-    600: Color(0x7A8E9BB3),
-  });
-
-  static const EvaTransparentColor basicDarkTransparent =
-      EvaTransparentColor(0x66FFFFFF, {
-    100: Color(0x14FFFFE1),
-    200: Color(0x28FFFFFF),
-    300: Color(0x3DFFFFFF),
-    400: Color(0x51FFFFFF),
-    500: Color(0x66FFFFFF),
-    600: Color(0x7AFFFFFF),
-  });
-
   static const EvaColor primary = EvaColor(0xFF3366FF, {
     100: Color(0xFFD6E4FF),
     200: Color(0xFFADC8FF),
@@ -146,5 +112,39 @@ class MyColors {
     400: Color(0x51FF3D3A),
     500: Color(0x66FF3D3A),
     600: Color(0x7AFF3D3A),
+  });
+
+  static const EvaBasicColor basic = EvaBasicColor(0xFFC5CEE0, {
+    100: Color(0xFFFFFFFF),
+    200: Color(0xFFF7F9FC),
+    300: Color(0xFFEDF1F7),
+    400: Color(0xFFE4E9F2),
+    500: Color(0xFFC5CEE0),
+    600: Color(0xFF8F9BB3),
+    700: Color(0xFF2E3A59),
+    800: Color(0xFF222B45),
+    900: Color(0xFF192038),
+    1000: Color(0xFF151A30),
+    1100: Color(0xFF101426),
+  });
+
+  static const EvaTransparentColor basicLightTransparent =
+      EvaTransparentColor(0x668E9BB3, {
+    100: Color(0x148E9BB3),
+    200: Color(0x288E9BB3),
+    300: Color(0x3D8E9BB3),
+    400: Color(0x518E9BB3),
+    500: Color(0x668E9BB3),
+    600: Color(0x7A8E9BB3),
+  });
+
+  static const EvaTransparentColor basicDarkTransparent =
+      EvaTransparentColor(0x66FFFFFF, {
+    100: Color(0x14FFFFE1),
+    200: Color(0x28FFFFFF),
+    300: Color(0x3DFFFFFF),
+    400: Color(0x51FFFFFF),
+    500: Color(0x66FFFFFF),
+    600: Color(0x7AFFFFFF),
   });
 }
