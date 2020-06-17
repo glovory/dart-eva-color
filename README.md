@@ -1,4 +1,4 @@
-[![version](https://img.shields.io/badge/version-1.0.1-blue)](https://pub.dev/packages/eva_color)
+[![version](https://img.shields.io/badge/version-1.1.0-blue)](https://pub.dev/packages/eva_color)
 [![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
 
 # EVA COLOR
@@ -12,7 +12,7 @@ with dart generator from eva theme json file.
 
 1. Just include it into your `pubspec.yaml` dependencies:
    ```
-   eva_color: ^1.0.1
+   eva_color: ^1.1.0
    ```
 2. Run command to update the dependencies:
    ```bash
@@ -25,6 +25,7 @@ with dart generator from eva theme json file.
    standard output:
    ```
    EvaColor -> used for the basic color with 9 shades
+   EvaBasicColor -> used for basic background-foreground color with 11 shades
    EvaTransparentColor -> used for transparent color with 6 shades
    ```
    These classes are compatible with `dart:ui` and can be used in any
@@ -107,6 +108,38 @@ Below is how you use the color in your project.
    ```
 
 ## TIPS
+
+### Basic Color
+
+By default, basic color is not provided by the generated json from Eva Colors Generator. Because it might be needed in most of the application, this library will auto generate the basic color by default, using the color scheme from the official Sketch file. If you want to customize the basic color, you must provide ALL the required swatches in the input file. Missing one of this, the generator will throw error.
+
+```
+"color-basic-100": "#FFFFFF",
+"color-basic-200": "#F7F9FC",
+"color-basic-300": "#EDF1F7",
+"color-basic-400": "#E4E9F2",
+"color-basic-500": "#C5CEE0",
+"color-basic-600": "#8F9BB3",
+"color-basic-700": "#2E3A59",
+"color-basic-800": "#222B45",
+"color-basic-900": "#192038",
+"color-basic-1000": "#151A30",
+"color-basic-1100": "#101426",
+"color-basic-light-transparent-100": "rgba(142, 155, 179, 0.08)",
+"color-basic-light-transparent-200": "rgba(142, 155, 179, 0.16)",
+"color-basic-light-transparent-300": "rgba(142, 155, 179, 0.24)",
+"color-basic-light-transparent-400": "rgba(142, 155, 179, 0.32)",
+"color-basic-light-transparent-500": "rgba(142, 155, 179, 0.4)",
+"color-basic-light-transparent-600": "rgba(142, 155, 179, 0.48)",
+"color-basic-dark-transparent-100": "rgba(255, 255, 225, 0.08)",
+"color-basic-dark-transparent-200": "rgba(255, 255, 255, 0.16)",
+"color-basic-dark-transparent-300": "rgba(255, 255, 255, 0.24)",
+"color-basic-dark-transparent-400": "rgba(255, 255, 255, 0.32)",
+"color-basic-dark-transparent-500": "rgba(255, 255, 255, 0.4)",
+"color-basic-dark-transparent-600": "rgba(255, 255, 255, 0.48)",
+```
+
+### Color Shades
 
 If you want to add more Eva Color shades, just add it in the
 `custom-theme.json` provided by the exported file. For example, adding

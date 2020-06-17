@@ -96,7 +96,7 @@ void main() {
     ColorProperty primary100 =
         ColorProperty.fromLine('color-primary-100', '#D6E4FF');
 
-    expect(primary100.type, ColorType.STANDARD);
+    expect(primary100.type, ColorType.standard);
     expect(primary100.name, 'primary');
     expect(primary100.index, '100');
     expect(primary100.hex, '0xFFD6E4FF');
@@ -105,13 +105,13 @@ void main() {
   test('Color property transparent', () {
     ColorProperty transparent200 = ColorProperty.fromLine(
         'color-success-transparent-200', 'rgba(62, 196, 62, 0.08)');
-    expect(transparent200.type, ColorType.TRANSPARENT);
+    expect(transparent200.type, ColorType.transparent);
     expect(transparent200.name, 'successTransparent');
     expect(transparent200.index, '200');
     expect(transparent200.hex, '0x143EC43E');
   });
 
-  test('validate basic color with incomplete basic color json', () {
+  test('Validate basic color with incomplete basic color json', () {
     GeneratorOption generatorOption = GeneratorOption.parseArgs([
       '-i',
       'test/input_output/custom-theme-incomplete-basic.json',
@@ -125,11 +125,31 @@ void main() {
     );
     expect(validator.validateInputFile(), null);
     expect(validator.validateOutputFile(), null);
-    expect(validator.validateBasicColor(),
-        GeneratorValidator.basicColorNotComplete);
+    expect(
+      validator.validateBasicColor(),
+      GeneratorValidator.basicColorNotValid,
+    );
   });
 
-  test('Full generate', () {
+  test('Validate json with no basic color (using default)', () {
+    GeneratorOption generatorOption = GeneratorOption.parseArgs([
+      '-i',
+      'test/input_output/custom-theme-no-basic.json',
+      '-o',
+      'test/input_output/eva_colors.dart',
+      '-c',
+      'MyColors',
+    ]);
+    GeneratorValidator validator = GeneratorValidator(
+      option: generatorOption,
+    );
+
+    expect(validator.validateInputFile(), null);
+    expect(validator.validateOutputFile(), null);
+    expect(validator.validateBasicColor(), null);
+  });
+
+  test('Full generate with basic color defined', () {
     GeneratorOption generatorOption = GeneratorOption.parseArgs([
       '-i',
       'test/input_output/custom-theme.json',
@@ -158,25 +178,7 @@ void main() {
     writeReplaceFile(validator.output, output);
   });
 
-  test('validator basic color', () {
-    GeneratorOption generatorOption = GeneratorOption.parseArgs([
-      '-i',
-      'test/input_output/custom-theme-no-basic.json',
-      '-o',
-      'test/input_output/eva_colors.dart',
-      '-c',
-      'MyColors',
-    ]);
-    GeneratorValidator validator = GeneratorValidator(
-      option: generatorOption,
-    );
-
-    expect(validator.validateInputFile(), null);
-    expect(validator.validateOutputFile(), null);
-    expect(validator.validateBasicColor(), null);
-  });
-
-  test('Full generate with no basic color', () {
+  test('Full generate with no basic color defined', () {
     GeneratorOption generatorOption = GeneratorOption.parseArgs([
       '-i',
       'test/input_output/custom-theme-no-basic.json',

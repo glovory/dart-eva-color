@@ -12,7 +12,8 @@ class GeneratorValidator {
   static const String outputNotDart = 'Output file must be dart file';
   static const String outputNoPermission =
       'Please check if you have write permission to this directory';
-  static const String basicColorNotComplete = "Basic color not complete";
+  static const String basicColorNotValid =
+      "Basic color not valid or not complete";
 
   final GeneratorOption option;
 
@@ -27,6 +28,7 @@ class GeneratorValidator {
   }) : assert(option != null);
 
   /// Validate input file. Return null if no error.
+  /// Run first
   String validateInputFile() {
     final File file = File(option.input);
 
@@ -50,6 +52,7 @@ class GeneratorValidator {
   }
 
   /// Validate output file. By default, the existing output will be replaced.
+  /// Run second
   String validateOutputFile() {
     final File file = File(option.output);
 
@@ -74,27 +77,32 @@ class GeneratorValidator {
     return null;
   }
 
+  /// Validate the existing basic color. If the basic color is not exists,
+  /// use the predefined basic color from sketch file.
   String validateBasicColor() {
-    final File file = File(option.input);
+    final int linesNeeded = 23;
 
-    Map<String, dynamic> jsonMap = json.decode(file.readAsStringSync());
-    int basicCount = basicColorCount(jsonMap);
-    if (basicCount > 0 && basicCount < 23) {
-      return basicColorNotComplete;
+    int basicCount = _countBasicColor(result);
+
+    // validate the count
+    if (basicCount != 0 && basicCount != linesNeeded) {
+      return basicColorNotValid;
     }
 
+    // if it has no definition, load the default from sketch file specification
     if (basicCount == 0) {
-      Directory current = Directory(Platform.script.toFilePath());
       Map<String, dynamic> basicMap = json.decode(
-          File(current.parent.path + "/style/basic.json").readAsStringSync());
-      ;
-      jsonMap.addAll(basicMap);
-      result = jsonMap;
+        File("bin/style/basic.json").readAsStringSync(),
+      );
+      // add the basic in the result
+      result.addAll(basicMap);
     }
+
     return null;
   }
 
-  int basicColorCount(Map<String, dynamic> jsonMap) {
+  /// Count the existing basic color
+  int _countBasicColor(Map<String, dynamic> jsonMap) {
     String basicKey = "color-basic-";
     String basicLightTransparentKey = "color-basic-light-transparent-";
     String basicDarkTransparentKey = "color-basic-dark-transparent-";
@@ -119,6 +127,7 @@ class GeneratorValidator {
         lightKeyCount++;
       }
     }
+
     return basicKeyCount + lightKeyCount + darkKeyCount;
   }
 }
