@@ -91,8 +91,9 @@ class GeneratorValidator {
 
     // if it has no definition, load the default from sketch file specification
     if (basicCount == 0) {
+      Directory current = Directory(Platform.script.toFilePath());
       Map<String, dynamic> basicMap = json.decode(
-        File("bin/style/basic.json").readAsStringSync(),
+        File(current.parent.path + "/style/basic.json").readAsStringSync(),
       );
       // add the basic in the result
       result.addAll(basicMap);
