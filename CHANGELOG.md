@@ -1,3 +1,8 @@
+## [1.1.0] - 17 June 2020.
+
+* Add basic color for black and white. If not defined in the input file, it will be generated 
+  automatically.
+
 ## [1.0.1] - 14 May 2020.
 
 * Add example
