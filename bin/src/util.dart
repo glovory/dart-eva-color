@@ -34,11 +34,6 @@ List<ColorSwatchProperty> parseJsonTheme(Map<String, dynamic> jsonMap) {
   // store results by categorize it using map to easily find it
   Map<String, ColorSwatchProperty> results = Map<String, ColorSwatchProperty>();
 
-  if(!isBasicColorExist(jsonMap)){
-    File file = File('../style/basic.json');
-    Map<String,dynamic> basicJsonMap = json.decode(file.readAsStringSync());
-    //todo add basicJsonMap to imported json
-  }
   // loop each line of json
   jsonMap.forEach((key, value) {
     ColorProperty parsed = ColorProperty.fromLine(key, value);
@@ -58,28 +53,6 @@ List<ColorSwatchProperty> parseJsonTheme(Map<String, dynamic> jsonMap) {
   });
 
   return results.values.toList();
-}
-
-bool isBasicColorExist(Map<String, dynamic> jsonMap) {
-  String basicKey = "color-basic-";
-  String basicLightTransparentKey = "color-basic-light-transparent-";
-  String basicDarkTransparentKey = "color-basic-dark-transparent-";
-
-  //check for basicKey
-  for (int i = 100; i >= 1100; i + 100) {
-    if (!jsonMap.containsKey(basicKey + "$i")) {
-      return false;
-    }
-  }
-
-  //check for light and dark key
-  for (int j = 100; j >= 600; j + 100) {
-    if (!jsonMap.containsKey(basicDarkTransparentKey + "$j") ||
-        !jsonMap.containsKey(basicLightTransparentKey + "$j")) {
-      return false;
-    }
-  }
-  return true;
 }
 
 void writeReplaceFile(File file, String content) {

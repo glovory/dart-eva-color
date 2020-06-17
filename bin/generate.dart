@@ -27,6 +27,13 @@ void main(List<String> args) {
     exit(1);
   }
 
+  //Todo validate basic color
+  String validateBasicColor= validator.validateBasicColor();
+  if(validateBasicColor!=null){
+    print(validateBasicColor);
+    exit(1);
+  }
+
   // parse to list of swatches
   final List<ColorSwatchProperty> swatches = parseJsonTheme(validator.result);
 

@@ -13,6 +13,7 @@ class GeneratorValidator {
   static const String outputNotDart = 'Output file must be dart file';
   static const String outputNoPermission =
       'Please check if you have write permission to this directory';
+  static const String basicColorNotComplete = "Basic color not complete";
 
   final GeneratorOption option;
 
@@ -72,5 +73,50 @@ class GeneratorValidator {
     output = file;
 
     return null;
+  }
+
+  String validateBasicColor() {
+    final File file = File(option.input);
+
+    Map<String, dynamic> jsonMap = json.decode(file.readAsStringSync());
+    int basicCount = basicColorCount(jsonMap);
+    if (basicCount > 0 && basicCount <23) {
+      return basicColorNotComplete;
+    }
+    if (basicCount == 0) {
+      Map<String, dynamic> basicMap =
+          json.decode(File("bin/style/basic.json").readAsStringSync());
+      jsonMap.addAll(basicMap);
+      result = jsonMap;
+    }
+    return null;
+  }
+
+  int basicColorCount(Map<String, dynamic> jsonMap) {
+    String basicKey = "color-basic-";
+    String basicLightTransparentKey = "color-basic-light-transparent-";
+    String basicDarkTransparentKey = "color-basic-dark-transparent-";
+
+    int basicKeyCount = 0;
+    int lightKeyCount = 0;
+    int darkKeyCount = 0;
+
+    //check for basicKey
+    for (int i = 100; i <= 1100; i +=100) {
+      if (jsonMap.containsKey(basicKey + "$i")) {
+        basicKeyCount++;
+      }
+    }
+
+    //check for light and dark key
+    for (int j = 100; j <= 600; j +=100) {
+      if (jsonMap.containsKey(basicDarkTransparentKey + "$j")) {
+        darkKeyCount++;
+      }
+      if (jsonMap.containsKey(basicLightTransparentKey + "$j")) {
+        lightKeyCount++;
+      }
+    }
+    return basicKeyCount + lightKeyCount + darkKeyCount;
   }
 }
