@@ -27,9 +27,9 @@ void main(List<String> args) {
     exit(1);
   }
 
-  //Todo validate basic color
-  String validateBasicColor= validator.validateBasicColor();
-  if(validateBasicColor!=null){
+  //validate basic color
+  String validateBasicColor = validator.validateBasicColor();
+  if (validateBasicColor != null) {
     print(validateBasicColor);
     exit(1);
   }

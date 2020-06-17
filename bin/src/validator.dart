@@ -80,7 +80,7 @@ class GeneratorValidator {
 
     Map<String, dynamic> jsonMap = json.decode(file.readAsStringSync());
     int basicCount = basicColorCount(jsonMap);
-    if (basicCount > 0 && basicCount <23) {
+    if (basicCount > 0 && basicCount < 23) {
       return basicColorNotComplete;
     }
     if (basicCount == 0) {
@@ -102,14 +102,14 @@ class GeneratorValidator {
     int darkKeyCount = 0;
 
     //check for basicKey
-    for (int i = 100; i <= 1100; i +=100) {
+    for (int i = 100; i <= 1100; i += 100) {
       if (jsonMap.containsKey(basicKey + "$i")) {
         basicKeyCount++;
       }
     }
 
     //check for light and dark key
-    for (int j = 100; j <= 600; j +=100) {
+    for (int j = 100; j <= 600; j += 100) {
       if (jsonMap.containsKey(basicDarkTransparentKey + "$j")) {
         darkKeyCount++;
       }

@@ -6,12 +6,12 @@ class GeneratorFormatter {
 
     String colorClass;
 
-    if(color.primary.type == ColorType.STANDARD){
-      colorClass='EvaColor';
-    }else if(color.primary.type==ColorType.BASIC){
-      colorClass='EvaBasicColor';
-    }else{
-      colorClass='EvaTransparentColor';
+    if (color.primary.type == ColorType.STANDARD) {
+      colorClass = 'EvaColor';
+    } else if (color.primary.type == ColorType.BASIC) {
+      colorClass = 'EvaBasicColor';
+    } else {
+      colorClass = 'EvaTransparentColor';
     }
     String colorName = color.primary.name;
 

@@ -71,7 +71,7 @@ class ColorProperty {
 
     // get hex
     String hex;
-    if (type == ColorType.STANDARD || type==ColorType.BASIC) {
+    if (type == ColorType.STANDARD || type == ColorType.BASIC) {
       hex = hexToIntHex(value);
     } else {
       final List<String> rgba =
