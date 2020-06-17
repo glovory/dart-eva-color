@@ -45,10 +45,9 @@ class EvaTransparentColor extends ColorSwatch<int> {
   Color get shade600 => this[600];
 }
 
-class EvaBasicColor extends ColorSwatch<int>{
+class EvaBasicColor extends ColorSwatch<int> {
   const EvaBasicColor(int primary, Map<int, Color> swatch)
       : super(primary, swatch);
-
 
   Color get shade100 => this[100];
 
@@ -72,4 +71,3 @@ class EvaBasicColor extends ColorSwatch<int>{
 
   Color get shade1100 => this[1100];
 }
-
