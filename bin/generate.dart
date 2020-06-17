@@ -28,7 +28,9 @@ void main(List<String> args) {
   }
 
   //validate basic color
-  String validateBasicColor = validator.validateBasicColor();
+  Directory current = Directory(Platform.script.toFilePath());
+  String basicJsonpath = current.parent.path + "/style/basic.json";
+  String validateBasicColor = validator.validateBasicColor(basicJsonpath);
   if (validateBasicColor != null) {
     print(validateBasicColor);
     exit(1);
