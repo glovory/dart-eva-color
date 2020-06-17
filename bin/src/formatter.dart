@@ -4,9 +4,15 @@ class GeneratorFormatter {
   String _formatColor(ColorSwatchProperty color) {
     final int pageLength = 80;
 
-    String colorClass = color.primary.type == ColorType.STANDARD
-        ? 'EvaColor'
-        : 'EvaTransparentColor';
+    String colorClass;
+
+    if(color.primary.type == ColorType.STANDARD){
+      colorClass='EvaColor';
+    }else if(color.primary.type==ColorType.BASIC){
+      colorClass='EvaBasicColor';
+    }else{
+      colorClass='EvaTransparentColor';
+    }
     String colorName = color.primary.name;
 
     // top of color
