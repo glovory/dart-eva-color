@@ -128,7 +128,7 @@ void main() {
     expect(validator.validateOutputFile(), null);
 
     List<ColorSwatchProperty> swatches = parseJsonTheme(validator.result);
-    expect(swatches.length, 10);
+    expect(swatches.length, 13);
 
     // format now
     GeneratorFormatter formatter = GeneratorFormatter();
