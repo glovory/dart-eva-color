@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:meta/meta.dart';
 import 'package:path/path.dart';
 
@@ -83,9 +82,12 @@ class GeneratorValidator {
     if (basicCount > 0 && basicCount < 23) {
       return basicColorNotComplete;
     }
+
     if (basicCount == 0) {
-      Map<String, dynamic> basicMap =
-          json.decode(File("bin/style/basic.json").readAsStringSync());
+      Directory current = Directory(Platform.script.toFilePath());
+      Map<String, dynamic> basicMap = json.decode(
+          File(current.parent.path + "/style/basic.json").readAsStringSync());
+      ;
       jsonMap.addAll(basicMap);
       result = jsonMap;
     }
