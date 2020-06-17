@@ -44,21 +44,25 @@ class ColorProperty {
 
     // get type
     ColorType type = ColorType.STANDARD;
-    if (keys.contains('basic') &&
-        (!keys.contains('light') || !keys.contains('dark'))) {
+
+    // if the keys contain basic keyword, use color type basic
+    if (keys.contains('basic')) {
       type = ColorType.BASIC;
-    }
-    if (keys.contains('basic') && keys.contains('light')) {
-      type = ColorType.LIGHT;
-    }
-    if (keys.contains('basic') && keys.contains('dark')) {
-      type = ColorType.DARK;
-    }
+      // if it also has light, use color type basic light
+      if (keys.contains('light')) {
+        type = ColorType.LIGHT;
+      } else
+      // or if it also has dark, use color type basic light
+      if (keys.contains('dark')) {
+        type = ColorType.DARK;
+      }
+    } else
+    // if it has transparent, we will use only transparent
     if (keys.contains('transparent')) {
       type = ColorType.TRANSPARENT;
     }
 
-    // camelize name
+    // Camelize name
     String name = '';
     for (int i = 0; i < keys.length; i++) {
       if (i > 0) {
