@@ -1,7 +1,7 @@
 # EVA COLOR
 
-[![Pub Version](https://img.shields.io/pub/v/eva_color))](https://pub.dev/packages/eva_color)
-[![GitHub](https://img.shields.io/github/license/glovory/flutter_eva_color))](https://opensource.org/licenses/BSD-2-Clause)
+[![Pub Version](https://img.shields.io/pub/v/eva_color)](https://pub.dev/packages/eva_color)
+[![GitHub](https://img.shields.io/github/license/glovory/flutter_eva_color)](https://opensource.org/licenses/BSD-2-Clause)
 
 Simple [Eva Design System](https://eva.design) color class for Flutter,
 with dart generator from eva theme json file.
