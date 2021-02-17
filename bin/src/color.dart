@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'util.dart';
 
 enum ColorType {
@@ -9,12 +7,13 @@ enum ColorType {
 }
 
 class ColorSwatchProperty {
-  ColorProperty primary;
-  List<ColorProperty> swatches;
+  ColorProperty? primary;
+  List<ColorProperty> swatches = List<ColorProperty>.empty(
+    growable: true,
+  );
 
   ColorSwatchProperty({
     this.primary,
-    this.swatches,
   });
 }
 
@@ -25,10 +24,10 @@ class ColorProperty {
   final String hex;
 
   ColorProperty({
-    @required this.type,
-    @required this.name,
-    @required this.index,
-    @required this.hex,
+    required this.type,
+    required this.name,
+    required this.index,
+    required this.hex,
   });
 
   factory ColorProperty.fromLine(String key, String value) {
@@ -73,10 +72,10 @@ class ColorProperty {
           value.replaceFirst('rgba(', '').replaceFirst(')', '').split(',');
 
       hex = rgbaToIntHex(
-        int.tryParse(rgba[0].trim()),
-        int.tryParse(rgba[1].trim()),
-        int.tryParse(rgba[2].trim()),
-        double.tryParse(rgba[3].trim()),
+        int.tryParse(rgba[0].trim())!,
+        int.tryParse(rgba[1].trim())!,
+        int.tryParse(rgba[2].trim())!,
+        double.tryParse(rgba[3].trim())!,
       );
     }
 
