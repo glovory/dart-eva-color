@@ -39,19 +39,17 @@ List<ColorSwatchProperty> parseJsonTheme(Map<String, dynamic> jsonMap) {
 
     // check if the name has created
     if (!results.containsKey(parsed.name)) {
-      results[parsed.name] = ColorSwatchProperty(
-        swatches: List<ColorProperty>(),
-      );
+      results[parsed.name] = ColorSwatchProperty();
     }
 
     // add the parsed to swatches
-    results[parsed.name].swatches.add(parsed);
+    results[parsed.name]!.swatches.add(parsed);
 
     // if index is 600 for basic, or 500 for other, add it as primary
     if (parsed.type == ColorType.basic && parsed.index == '600') {
-      results[parsed.name].primary = parsed;
+      results[parsed.name]!.primary = parsed;
     } else if (parsed.type != ColorType.basic && parsed.index == '500') {
-      results[parsed.name].primary = parsed;
+      results[parsed.name]!.primary = parsed;
     }
   });
 
