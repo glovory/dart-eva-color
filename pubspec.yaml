@@ -1,7 +1,7 @@
 name: eva_color
 description: Simple Eva Design System color and swatches for Flutter, with dart generator command
   from eva theme json file.
-version: 1.1.1
+version: 1.2.0
 homepage: https://glovory.com
 repository: https://github.com/glovory/flutter_eva_color
 issue_tracker: https://github.com/glovory/flutter_eva_color/issues
@@ -10,15 +10,15 @@ executables:
   generate: generate
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.12.0"
+  sdk: ">=2.12.0-0 <3.0.0"
+  flutter: ">=1.22.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  args: ^1.6.0
-  meta: ^1.1.8
-  path: ^1.6.4
+  args: ^2.0.0
+  meta: ^1.3.0
+  path: ^1.8.0
 
 dev_dependencies:
   flutter_test:
