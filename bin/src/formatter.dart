@@ -8,20 +8,20 @@ class GeneratorFormatter {
     // Class name to be used
     String colorClass;
 
-    if (color.primary.type == ColorType.standard) {
+    if (color.primary!.type == ColorType.standard) {
       colorClass = 'EvaColor';
-    } else if (color.primary.type == ColorType.basic) {
+    } else if (color.primary!.type == ColorType.basic) {
       colorClass = 'EvaBasicColor';
     } else {
       colorClass = 'EvaTransparentColor';
     }
 
     // Color variable name
-    String colorName = color.primary.name;
+    String colorName = color.primary!.name;
 
     // Top of color
     String top = '  static const $colorClass $colorName =';
-    String _topLong = '$colorClass(${color.primary.hex}, {';
+    String _topLong = '$colorClass(${color.primary!.hex}, {';
     // if the long class name plus space is long
     if (top.length + 1 + _topLong.length >= pageLength) {
       top += '\n      ' + _topLong + '\n';
