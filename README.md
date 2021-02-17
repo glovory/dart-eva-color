@@ -12,7 +12,7 @@ with dart generator from eva theme json file.
 
 1. Just include it into your `pubspec.yaml` dependencies:
    ```
-   eva_color: ^1.2.0 # null safety ready
+   eva_color: ^1.2.0-null-safety # null safety ready
    ```
 2. Run command to update the dependencies:
    ```bash

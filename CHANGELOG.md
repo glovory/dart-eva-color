@@ -1,6 +1,6 @@
-## [1.2.0] - 17 February 2021.
+## [1.2.0-null-safety] - 17 February 2021.
 
-* Upgrade to null safety package.
+* Upgrade to null safety package. No breaking changes for the API.
 
 ## [1.1.1] - 17 June 2020.
 
