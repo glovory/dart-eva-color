@@ -32,7 +32,10 @@ void main() {
     expect(result.className, classNameArgs[1]);
 
     result = GeneratorOption.parseArgs(
-      List()..addAll(inputArgs)..addAll(outputArgs)..addAll(classNameArgs),
+      List.empty(growable: true)
+        ..addAll(inputArgs)
+        ..addAll(outputArgs)
+        ..addAll(classNameArgs),
     );
     expect(result.input, inputArgs[1]);
     expect(result.output, outputArgs[1]);
@@ -173,7 +176,7 @@ void main() {
     expect(validator.validateOutputFile(), null);
     expect(validator.validateBasicColor(), null);
 
-    List<ColorSwatchProperty> swatches = parseJsonTheme(validator.result);
+    List<ColorSwatchProperty> swatches = parseJsonTheme(validator.result!);
     expect(swatches.length, 13);
 
     // format now
@@ -183,7 +186,7 @@ void main() {
       formatter.formatBody(swatches),
     );
 
-    writeReplaceFile(validator.output, output);
+    writeReplaceFile(validator.output!, output);
   });
 
   test('Full generate with no basic color defined', () {
@@ -207,7 +210,7 @@ void main() {
       null,
     );
 
-    List<ColorSwatchProperty> swatches = parseJsonTheme(validator.result);
+    List<ColorSwatchProperty> swatches = parseJsonTheme(validator.result!);
     expect(swatches.length, 13);
 
     // format now
@@ -217,6 +220,6 @@ void main() {
       formatter.formatBody(swatches),
     );
 
-    writeReplaceFile(validator.output, output);
+    writeReplaceFile(validator.output!, output);
   });
 }
