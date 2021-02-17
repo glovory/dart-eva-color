@@ -14,28 +14,28 @@ void main(List<String> args) {
   GeneratorValidator validator = GeneratorValidator(option: opts);
 
   // validate input
-  String validateInput = validator.validateInputFile();
+  String? validateInput = validator.validateInputFile();
   if (validateInput != null) {
     print(validateInput);
     exit(1);
   }
 
   // validate output
-  String validateOutput = validator.validateOutputFile();
+  String? validateOutput = validator.validateOutputFile();
   if (validateOutput != null) {
     print(validateOutput);
     exit(1);
   }
 
   //validate basic color
-  String validateBasicColor = validator.validateBasicColor();
+  String? validateBasicColor = validator.validateBasicColor();
   if (validateBasicColor != null) {
     print(validateBasicColor);
     exit(1);
   }
 
   // parse to list of swatches
-  final List<ColorSwatchProperty> swatches = parseJsonTheme(validator.result);
+  final List<ColorSwatchProperty> swatches = parseJsonTheme(validator.result!);
 
   // format now
   GeneratorFormatter formatter = GeneratorFormatter();
@@ -44,7 +44,7 @@ void main(List<String> args) {
     formatter.formatBody(swatches),
   );
 
-  writeReplaceFile(validator.output, output);
+  writeReplaceFile(validator.output!, output);
 
   print('Generate success');
 }
