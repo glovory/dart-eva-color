@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:meta/meta.dart';
 import 'package:path/path.dart';
 
 import 'option.dart';
@@ -19,18 +18,18 @@ class GeneratorValidator {
   final GeneratorOption option;
 
   // parsed json
-  Map<String, dynamic> result;
+  Map<String, dynamic>? result;
 
   // prepare output
-  File output;
+  File? output;
 
   GeneratorValidator({
-    @required this.option,
-  }) : assert(option != null);
+    required this.option,
+  });
 
   /// Validate input file. Return null if no error.
   /// Run first
-  String validateInputFile() {
+  String? validateInputFile() {
     final File file = File(option.input);
 
     if (!file.existsSync()) {
@@ -54,7 +53,7 @@ class GeneratorValidator {
 
   /// Validate output file. By default, the existing output will be replaced.
   /// Run second
-  String validateOutputFile() {
+  String? validateOutputFile() {
     final File file = File(option.output);
 
     // check extension
@@ -82,10 +81,10 @@ class GeneratorValidator {
   /// use the predefined basic color from sketch file.
   ///
   /// Define path if it is not from other called script
-  String validateBasicColor([String path]) {
+  String? validateBasicColor([String? path]) {
     final int linesNeeded = 23;
 
-    int basicCount = _countBasicColor(result);
+    int basicCount = _countBasicColor(result!);
 
     // validate the count
     if (basicCount != 0 && basicCount != linesNeeded) {
@@ -105,7 +104,7 @@ class GeneratorValidator {
         File(path).readAsStringSync(),
       );
       // add the basic in the result
-      result.addAll(basicMap);
+      result!.addAll(basicMap);
     }
 
     return null;
