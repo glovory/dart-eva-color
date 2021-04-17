@@ -1,3 +1,7 @@
+## [1.3.0] - 17 April 2021.
+
+* Bump version to Flutter 2.0.
+
 ## [1.2.0-null-safety] - 17 February 2021.
 
 * Upgrade to null safety package. No breaking changes for the API.
